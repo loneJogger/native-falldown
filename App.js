@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { useFonts } from 'expo-font'
+import { AppLoading } from 'expo'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -9,20 +11,30 @@ import GameWindow from './components/GameWindow'
 
  const App = () => {
 
-   const [ isStart, setIsStart ] = useState(false)
+  const [ isStart, setIsStart ] = useState(false)
 
-  return (
-    <View style={styles.container}>
-      <Header />
-      {isStart ? (
-        <GameWindow />
-      ) : (
-        <Menu />
-      )}
-      <Footer />
-      <StatusBar style="auto" />
-    </View>
-  )
+  let [ fontsLoaded ] = useFonts({
+    'VT': require('./assets/fonts/VT323-Regular.ttf')
+  })
+
+  const setStart = (flag) => { setIsStart(flag) }
+
+  if (!fontsLoaded) {
+    return <AppLoading/>
+  } else {
+    return (
+      <View style={styles.container}>
+        <Header />
+        {isStart ? (
+          <GameWindow />
+        ) : (
+          <Menu setStart={setStart}/>
+        )}
+        <Footer />
+        <StatusBar style="auto" />
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({

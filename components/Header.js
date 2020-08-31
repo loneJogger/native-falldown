@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     color: '#110307',
   },
   text: {
-    fontSize: 32
+    fontSize: 48,
+    fontFamily: 'VT'
   }
 })
 

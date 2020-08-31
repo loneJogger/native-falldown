@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <View style={styles.footer}>
-      <Text style={styles.text}>&copy; {getYear()}</Text>
+      <Text style={styles.text}>The Holy Gross &copy; {getYear()}</Text>
     </View>
   )
 }
@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
     color: '#110307',
   },
   text: {
-    fontSize: 20
+    fontSize: 32,
+    fontFamily: 'VT'
   }
 })
 

@@ -5,7 +5,7 @@ const GameWindow = () => {
 
   return (
     <View>
-      <Text>Game Window!</Text>
+      <Text style={{color: '#fff'}}>Game Window</Text>
     </View>
   )
 }
